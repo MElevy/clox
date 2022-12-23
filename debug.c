@@ -14,6 +14,10 @@ int dissasembleInstruction(Chunk* chunk, int offset) {
 
   uint8_t instruction = chunk->code[offset];
   switch (instruction) {
-    
+    case OP_RETURN:
+      return simpleInstruction("OP_RETURN", offset);
+    default:
+      printf("Unkown opcode %d\n", instruction);
+      return offset + 1;
   }
 }
